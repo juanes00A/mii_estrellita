@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cami, amor de mi vida 💖</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Georgia, serif;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ffd6e7,#fff4f7);
+}
+
+/* PANTALLA CLAVE */
+
+#pantalla-clave{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    animation:fondo 6s infinite alternate;
+    overflow:hidden;
+    position:relative;
+}
+
+@keyframes fondo{
+    0%{
+        background:#ffd6e7;
+    }
+
+    100%{
+        background:#fff0f5;
+    }
+}
+
+.caja{
+    background:white;
+    width:330px;
+    padding:35px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,0,0,0.15);
+
+    opacity:0;
+    transform:translateY(40px);
+
+    animation:entrada 1.8s forwards;
+}
+
+@keyframes entrada{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.titulo{
+    color:#d95d8b;
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.subtexto{
+    color:#7c5a65;
+    line-height:1.7;
+    margin-bottom:22px;
+    font-size:16px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:#ffe5ee;
+    outline:none;
+    text-align:center;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:#ff76a4;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#ff5d93;
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+    display:none;
+}
+
+/* CORAZONES */
+
+.corazon{
+    position:fixed;
+    bottom:-50px;
+    color:#ff78a8;
+    animation:flotar linear infinite;
+    opacity:0.7;
+}
+
+@keyframes flotar{
+
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:0;
+    }
+
+    50%{
+        opacity:0.8;
+    }
+
+    100%{
+        transform:translateY(-120vh) scale(1.4);
+        opacity:0;
+    }
+
+}
+
+/* CARTA */
+
+#carta{
+    display:none;
+    padding:45px 15px;
+}
+
+.contenido{
+
+    background:white;
+    max-width:760px;
+    margin:auto;
+    padding:45px 30px;
+    border-radius:30px;
+    box-shadow:0 0 35px rgba(0,0,0,0.15);
+
+    opacity:0;
+    filter:blur(8px);
+    transform:translateY(30px);
+
+    animation:desvanecer 2.5s forwards;
+}
+
+@keyframes desvanecer{
+
+    from{
+        opacity:0;
+        filter:blur(8px);
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        filter:blur(0);
+        transform:translateY(0);
+    }
+
+}
+
+.titulo-carta{
+    text-align:center;
+    color:#d95d8b;
+    font-size:42px;
+    margin-bottom:10px;
+
+    animation:brillo 2s infinite alternate;
+}
+
+@keyframes brillo{
+
+    from{
+        text-shadow:0 0 5px #ffb6cf;
+    }
+
+    to{
+        text-shadow:0 0 20px #ff7faa;
+    }
+
+}
+
+.subtitulo{
+    text-align:center;
+    color:#d95d8b;
+    font-size:22px;
+    line-height:1.7;
+    margin-bottom:35px;
+
+    opacity:0;
+    animation:subFade 2.5s forwards;
+}
+
+@keyframes subFade{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+        filter:blur(5px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+
+}
+
+p{
+    font-size:19px;
+    line-height:1.9;
+    color:#5a4048;
+    margin-bottom:24px;
+    text-align:justify;
+
+    animation:texto 2s ease;
+}
+
+@keyframes texto{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* IMÁGENES */
+
+.imagen{
+    width:180px;
+    display:block;
+    margin:28px auto;
+    border-radius:18px;
+    object-fit:cover;
+
+    box-shadow:0 0 18px rgba(0,0,0,0.15);
+
+    transition:0.5s;
+}
+
+.imagen:hover{
+    transform:scale(1.08);
+}
+
+/* FIRMA */
+
+.firma{
+    text-align:center;
+    margin-top:35px;
+    color:#d95d8b;
+    font-size:30px;
+}
+
+/* ESTRELLAS */
+
+.estrella{
+    position:fixed;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation:parpadeo 2s infinite alternate;
+}
+
+@keyframes parpadeo{
+
+    from{
+        opacity:0.2;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CORAZONES -->
+
+<div class="corazon" style="left:10%; animation-duration:8s; font-size:22px;">❤</div>
+<div class="corazon" style="left:20%; animation-duration:10s; font-size:28px;">💖</div>
+<div class="corazon" style="left:35%; animation-duration:7s; font-size:20px;">💕</div>
+<div class="corazon" style="left:50%; animation-duration:12s; font-size:26px;">💗</div>
+<div class="corazon" style="left:65%; animation-duration:9s; font-size:24px;">❤</div>
+<div class="corazon" style="left:80%; animation-duration:11s; font-size:30px;">💞</div>
+
+<!-- ESTRELLAS -->
+
+<div class="estrella" style="top:10%; left:20%;"></div>
+<div class="estrella" style="top:25%; left:70%;"></div>
+<div class="estrella" style="top:40%; left:50%;"></div>
+<div class="estrella" style="top:70%; left:30%;"></div>
+<div class="estrella" style="top:80%; left:80%;"></div>
+
+<!-- PANTALLA DE CLAVE -->
+
+<div id="pantalla-clave">
+
+<div class="caja">
+
+<div class="titulo">
+Nuestra Clave 💌
+</div>
+
+<div class="subtexto">
+Solo tú puedes abrir esto 💖
+</div>
+
+<input type="password" id="clave" placeholder="Escribe nuestra clave">
+
+<button onclick="abrirCarta()">
+Abrir Carta ✨
+</button>
+
+<div id="error">
+La clave no es correcta 💔
+</div>
+
+</div>
+
+</div>
+
+<!-- CARTA -->
+
+<div id="carta">
+
+<div class="contenido">
+
+<div class="titulo-carta">
+Algo especial para ti 💖
+</div>
+
+<div class="subtitulo">
+Mi caleña favorita 💕<br>
+y la única dueña de mi corazón 💌
+</div>
+
+<p>
+No sé cómo explicarte todo lo que causas en mí, porque sinceramente siento que las palabras se quedan cortas cuando se trata de ti. Desde que llegaste a mi vida todo cambió de una manera tan bonita que todavía me cuesta creerlo.
+</p>
+
+<img src="foto1.jpg" class="imagen">
+
+<p>
+Contigo encontré tranquilidad, felicidad y una conexión que jamás había sentido antes. Me encanta absolutamente todo de ti: tu manera de hablar, tu sonrisa, tus ocurrencias y la forma en la que me haces sentir querido incluso a la distancia.
+</p>
+
+<p>
+Y aunque uno podría pensar que todo pasó demasiado rápido, la verdad es que contigo todo se sintió correcto desde el principio, como si mi corazón ya te conociera desde antes.
+</p>
+
+<img src="foto2.jpg" class="imagen">
+
+<p>
+Gracias por existir, por llegar a mi vida y por convertirte poco a poco en mi lugar favorito. Quiero seguir creando recuerdos contigo, seguir soñando juntos y demostrarte cada día lo muchísimo que significas para mí.
+</p>
+
+<p>
+Porque sinceramente...
+no imagino una vida donde tú no estés 💗
+</p>
+
+<div class="firma">
+Con todo mi amor 💌
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function abrirCarta(){
+
+    let clave = document.getElementById("clave").value;
+
+    if(clave === "2340"){
+
+        document.getElementById("pantalla-clave").style.display = "none";
+        document.getElementById("carta").style.display = "block";
+
+    }else{
+
+        document.getElementById("error").style.display = "block";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
